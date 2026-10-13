@@ -23,14 +23,29 @@ súbory do /Library/Printers/foo2zjs-p1566 a PPD do
 nie sú potrebné. Inštalátor spustí skúšobný prevod a zastaví sa pri chybe.
 
 Ak je P1566 zapnutá a pripojená cez USB, inštalátor vytvorí tlačovú
-frontu HP_LaserJet_Pro_P1566 bez zdieľania v sieti. Ak ju pripojíte neskôr,
-znovu spustite:
+frontu HP_LaserJet_Pro_P1566 bez zdieľania v sieti. Ak ju pripojíte neskôr
+a ešte nemáte frontu, znovu spustite:
 
     sudo ./install.sh
+
+Ak už v systéme existuje fronta pre P1566, inštalácia súborov na disk jej
+ovládač automaticky nezmení. Na tomto Macu sa existujúca fronta volá
+`HP_LaserJet_Professional_P1566`. Jej PPD môžete prepnúť bez vytvorenia
+ďalšej fronty:
+
+    sudo lpadmin -p HP_LaserJet_Professional_P1566 -P /Library/Printers/PPDs/Contents/Resources/HP-LaserJet-P1566-foo2zjs.ppd
+
+Pred prepnutím si odložte pôvodný súbor
+`/etc/cups/ppd/HP_LaserJet_Professional_P1566.ppd`. Na tomto Macu je záloha
+v `local-backup/`; tento priečinok sa nenahráva na GitHub.
 
 Skúšobná tlač:
 
     lp -d HP_LaserJet_Pro_P1566 tests/test-page.txt
+
+Ak používate existujúcu frontu na tomto Macu:
+
+    lp -d HP_LaserJet_Professional_P1566 tests/test-page.txt
 
 V prípade neúspechu skontrolujte, či Mac tlačiareň vidí:
 
