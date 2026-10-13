@@ -1,0 +1,3 @@
+HP LaserJet Pro P1566 test page
+macOS Golden Gate 27.0.1
+foo2zjs CUPS raster filter

@@ -1,0 +1,5 @@
+/build/
+*.zjs
+*.raster
+*.pbm
+.DS_Store
