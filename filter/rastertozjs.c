@@ -1,4 +1,5 @@
-/*
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ *
  * HP LaserJet Pro P1566 CUPS raster filter.
  *
  * macOS cgpdftoraster supplies CUPS Raster. This bridge converts each page to
